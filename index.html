@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【BCP】地震対応テスト実施のお知らせ</title>
+    <style>
+        /* Gmail風の洗練されたスタイル */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Google Sans', 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #202124;
+            background-color: #ffffff;
+            font-size: 14px;
+        }
+
+        .gmail-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0;
+            background-color: #ffffff;
+        }
+
+        /* Gmail風ヘッダー */
+        .gmail-header {
+            padding: 12px 0;
+            margin-bottom: 24px;
+        }
+
+        .sender-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .sender-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: #1a73e8;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 500;
+            font-size: 14px;
+            margin-right: 12px;
+        }
+
+        .sender-info {
+            flex: 1;
+        }
+
+        .sender-name {
+            font-size: 14px;
+            color: #202124;
+            margin: 0;
+            font-weight: 400;
+        }
+
+        .sender-email {
+            font-size: 12px;
+            color: #5f6368;
+            margin: 0;
+        }
+
+        .email-date {
+            font-size: 12px;
+            color: #5f6368;
+        }
+
+        .email-subject {
+            font-size: 22px;
+            color: #202124;
+            font-weight: 400;
+            margin: 12px 0 0 0;
+            line-height: 1.2;
+        }
+
+        /* メール本文 */
+        .email-content {
+            color: #202124;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* 会社ヘッダー - シンプルに */
+        .company-header {
+            text-align: center;
+            padding: 32px 24px;
+            margin-bottom: 32px;
+            background: linear-gradient(135deg, #1a73e8, #4285f4);
+            border-radius: 8px;
+            color: white;
+        }
+
+        .company-info {
+            margin-bottom: 16px;
+        }
+
+        .company-name {
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .system-label {
+            font-size: 13px;
+            opacity: 0.9;
+        }
+
+        .test-title {
+            font-size: 24px;
+            font-weight: 400;
+            margin: 16px 0 8px 0;
+        }
+
+        .test-subtitle {
+            font-size: 13px;
+            opacity: 0.8;
+        }
+
+        /* 段落スタイル */
+        .paragraph {
+            margin: 20px 0;
+            color: #202124;
+            line-height: 1.6;
+        }
+
+        /* セクションタイトル */
+        .section-title {
+            font-size: 16px;
+            font-weight: 500;
+            color: #1a73e8;
+            margin: 32px 0 16px 0;
+        }
+
+        /* 詳細情報 - よりシンプルに */
+        .info-section {
+            margin: 24px 0;
+        }
+
+        .info-item {
+            margin: 12px 0;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .info-label {
+            font-weight: 500;
+            color: #5f6368;
+            min-width: 100px;
+            margin-right: 16px;
+        }
+
+        .info-value {
+            color: #202124;
+            flex: 1;
+        }
+
+        /* 重要メッセージ */
+        .highlight-message {
+            background-color: #fef7e0;
+            padding: 16px;
+            border-radius: 4px;
+            border-left: 4px solid #fbbc04;
+            margin: 24px 0;
+        }
+
+        .highlight-text {
+            color: #ea8600;
+            font-size: 14px;
+            margin: 0;
+        }
+
+        /* 手順リスト */
+        .steps-section {
+            margin: 24px 0;
+        }
+
+        .steps-list {
+            list-style: none;
+            padding: 0;
+            margin: 16px 0;
+        }
+
+        .step-item {
+            display: flex;
+            margin: 12px 0;
+            align-items: flex-start;
+        }
+
+        .step-number {
+            background-color: #34a853;
+            color: white;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 500;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+
+        .step-text {
+            color: #202124;
+            flex: 1;
+            padding-top: 2px;
+        }
+
+        /* CTA ボタン - Gmail風 */
+        .cta-section {
+            text-align: center;
+            margin: 40px 0;
+            padding: 24px 0;
+        }
+
+        .cta-label {
+            font-size: 16px;
+            color: #5f6368;
+            margin-bottom: 20px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #1a73e8;
+            color: #ffffff !important;
+            text-decoration: none;
+            padding: 12px 32px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 500;
+            box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.3);
+            transition: all 0.2s;
+        }
+
+        .cta-button:hover {
+            background-color: #1557b0;
+            box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.4);
+            color: #ffffff !important;
+        }
+
+        .cta-note {
+            font-size: 12px;
+            color: #5f6368;
+            margin-top: 12px;
+        }
+
+        /* 注意事項 */
+        .warning-section {
+            margin: 24px 0;
+            padding: 16px;
+            background-color: #fff3cd;
+            border-radius: 4px;
+            border-left: 4px solid #ff9800;
+        }
+
+        .warning-text {
+            color: #e65100;
+            font-size: 13px;
+            margin: 0;
+        }
+
+        /* サポート情報 */
+        .support-section {
+            margin: 32px 0;
+        }
+
+        .support-info {
+            margin: 16px 0;
+        }
+
+        /* フッター */
+        .email-footer {
+            margin-top: 48px;
+            padding-top: 24px;
+            border-top: 1px solid #e8eaed;
+        }
+
+        .company-signature {
+            color: #5f6368;
+            font-size: 13px;
+            line-height: 1.5;
+            margin-bottom: 16px;
+        }
+
+        .auto-notice {
+            color: #9aa0a6;
+            font-size: 11px;
+            line-height: 1.4;
+        }
+
+        /* レスポンシブ対応 */
+        @media (max-width: 600px) {
+            .gmail-container {
+                padding: 0 16px;
+            }
+
+            .company-header {
+                margin-left: -16px;
+                margin-right: -16px;
+                border-radius: 0;
+            }
+
+            .test-title {
+                font-size: 20px;
+            }
+
+            .info-item {
+                flex-direction: column;
+                gap: 4px;
+            }
+
+            .info-label {
+                min-width: auto;
+                margin-right: 0;
+            }
+
+            .cta-button {
+                padding: 14px 24px;
+                font-size: 15px;
+            }
+        }
+
+        /* 印刷対応 */
+        @media print {
+            .gmail-container {
+                max-width: none;
+                padding: 0;
+            }
+
+            .company-header {
+                background: #f8f9fa !important;
+                color: #202124 !important;
+                border: 1px solid #e8eaed;
+            }
+
+            .cta-button {
+                background: transparent !important;
+                color: #1a73e8 !important;
+                border: 2px solid #1a73e8;
+            }
+        }
+
+        /* Gmail暗黒モード対応 */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #202124;
+                color: #e8eaed;
+            }
+
+            .gmail-container {
+                background-color: #202124;
+            }
+
+            .email-subject,
+            .paragraph,
+            .info-value,
+            .step-text {
+                color: #e8eaed;
+            }
+
+            .highlight-message {
+                background-color: #3c2e00;
+                border-color: #fbbc04;
+            }
+
+            .warning-section {
+                background-color: #3c2200;
+                border-color: #ff9800;
+            }
+
+            .email-footer {
+                border-color: #5f6368;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="gmail-container">
+        <!-- Gmail風のヘッダー -->
+        <div class="gmail-header">
+            <div class="sender-row">
+                <div class="sender-avatar">BCP</div>
+                <div class="sender-info">
+                    <div class="sender-name">BCP管理システム</div>
+                    <div class="sender-email">&lt;bcp-admin@tanaka-logistics.com&gt;</div>
+                </div>
+                <div class="email-date">2025年6月2日 10:00</div>
+            </div>
+            <h1 class="email-subject">【BCP】地震対応テスト実施のお知らせ</h1>
+        </div>
+
+        <!-- メール本文 -->
+        <div class="email-content">
+            <!-- 会社ヘッダー -->
+            <div class="company-header">
+                <div class="company-info">
+                    <div class="company-name">田中倉庫運輸株式会社</div>
+                    <div class="system-label">BCP管理システム</div>
+                </div>
+                <h2 class="test-title">地震対応テスト実施のお知らせ</h2>
+                <p class="test-subtitle">Business Continuity Plan Training</p>
+            </div>
+
+            <!-- 挨拶 -->
+            <div class="paragraph">
+                お疲れ様です。<br>
+                BCP管理システムより、<strong>地震対応テスト</strong>の実施についてお知らせいたします。
+            </div>
+
+            <!-- テスト詳細 -->
+            <h3 class="section-title">テスト詳細</h3>
+            <div class="info-section">
+                <div class="info-item">
+                    <div class="info-label">テスト内容</div>
+                    <div class="info-value">地震発生時の初動対応、避難手順、安否確認に関するテスト</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">問題数</div>
+                    <div class="info-value">10問</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">所要時間</div>
+                    <div class="info-value">約10分</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">受講期限</div>
+                    <div class="info-value">2025年6月9日（月）まで（送信日から7日間）</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">合格基準</div>
+                    <div class="info-value">70%以上の正答率</div>
+                </div>
+            </div>
+
+            <!-- 管理者メッセージ -->
+            <h3 class="section-title">管理者からのメッセージ</h3>
+            <div class="highlight-message">
+                <p class="highlight-text">
+                    今回のテストは、先月発生した地震を受けて、改めて地震対応の知識を確認するものです。
+                    日頃の学習成果を発揮し、万一の際に適切な行動が取れるよう準備しましょう。
+                </p>
+            </div>
+
+            <!-- 受講手順 -->
+            <h3 class="section-title">受講手順</h3>
+            <div class="steps-section">
+                <p class="paragraph">以下の手順でテストを受講してください：</p>
+                <ol class="steps-list">
+                    <li class="step-item">
+                        <div class="step-number">1</div>
+                        <div class="step-text">下記の「テストを開始する」ボタンをクリック</div>
+                    </li>
+                    <li class="step-item">
+                        <div class="step-number">2</div>
+                        <div class="step-text">画面の指示に従ってテストを受講</div>
+                    </li>
+                    <li class="step-item">
+                        <div class="step-number">3</div>
+                        <div class="step-text">最後に「提出」ボタンを押して完了</div>
+                    </li>
+                </ol>
+            </div>
+
+            <!-- テスト開始ボタン -->
+            <div class="cta-section">
+                <div class="cta-label">テスト受講はこちらから</div>
+                <a href="file:///Users/mineshimatomoya/LH/FUNNELBCP/prototype/test/bcp_test_participant.html" 
+                   class="cta-button" 
+                   target="_blank">
+                    テストを開始する
+                </a>
+                <div class="cta-note">
+                    ※このURLはあなた専用です。他の方との共有はお控えください。
+                </div>
+            </div>
+
+            <!-- 重要な注意事項 -->
+            <div class="warning-section">
+                <p class="warning-text">
+                    <strong>重要：</strong>一度テストを開始すると途中で中断できません。十分な時間を確保してから開始してください。
+                </p>
+            </div>
+
+            <!-- サポート情報 -->
+            <h3 class="section-title">サポート情報</h3>
+            <div class="support-section">
+                <p class="paragraph">
+                    ご不明な点やテスト中に技術的な問題が発生した場合は、下記までお問い合わせください。
+                </p>
+                <div class="support-info">
+                    <div class="info-item">
+                        <div class="info-label">問い合わせ先</div>
+                        <div class="info-value">BCP管理者（総務部）</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">メール</div>
+                        <div class="info-value">bcp-admin@tanaka-logistics.com</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">電話</div>
+                        <div class="info-value">03-1234-5678（内線：1001）</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">受付時間</div>
+                        <div class="info-value">平日 9:00-17:30</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- フッター -->
+            <div class="email-footer">
+                <div class="company-signature">
+                    <strong>田中倉庫運輸株式会社</strong><br>
+                    〒100-0001 東京都千代田区千代田1-1-1<br>
+                    TEL: 03-1234-5678 | FAX: 03-1234-5679
+                </div>
+                
+                <div class="auto-notice">
+                    このメールは自動送信されています。返信はできません。<br>
+                    BCP管理システム ver.3.0 | 配信日時: 2025年6月2日 10:00<br>
+                    配信停止をご希望の場合は、BCP管理者までご連絡ください。
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // テスト開始ボタンのクリック処理
+        document.querySelector('.cta-button').addEventListener('click', function(e) {
+            console.log('テスト開始ボタンがクリックされました');
+            console.log('遷移先:', this.href);
+        });
+    </script>
+</body>
+</html>
